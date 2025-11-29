@@ -1,3 +1,5 @@
 .venv
 **/__pycache__
 data
+.DS_Store
+test_data_project_122a

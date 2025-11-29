@@ -1,16 +1,21 @@
 import mysql.connector
 
-mydb = mysql.connector.connect(
-  user='root',
-  database='final_project'
-)
+# CHANGE THESE TWO VALUES:
+MYSQL_PASSWORD = "Dary123"
+MYSQL_SOCKET = "/tmp/mysql.sock"
 
-cursor = mydb.cursor()
+DB_CONFIG = {
+    "user": "root",
+    "password": MYSQL_PASSWORD,
+    "unix_socket": MYSQL_SOCKET,
+}
 
-print('DESCRIBE Test')
-cursor.execute('DESCRIBE Test')
+DB_NAME = "final_project"
 
-result = cursor.fetchall()
 
-for x in result:
-  print(x)
+def get_server_connection():
+    return mysql.connector.connect(**DB_CONFIG)
+
+
+def get_connection():
+    return mysql.connector.connect(database=DB_NAME, **DB_CONFIG)

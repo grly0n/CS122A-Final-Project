@@ -42,5 +42,8 @@ def initialize_arguments() -> argparse.ArgumentParser:
   keyword_search.add_argument('keyword', type=str)
 
   # nl2sql (later...)
-
+  nl2sql = subparser.add_parser(
+    'printNL2SQLresult',
+    help='Print NL2SQL experiment results from CSV'
+)
   return parser
