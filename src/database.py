@@ -1,7 +1,6 @@
 import mysql.connector
 
-# CHANGE THESE TWO VALUES:
-MYSQL_PASSWORD = "Dary123"
+MYSQL_PASSWORD = ""
 MYSQL_SOCKET = "/tmp/mysql.sock"
 
 DB_CONFIG = {
