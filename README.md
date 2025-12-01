@@ -9,7 +9,6 @@
 3. Run `python project.py [data_directory]`, where `data_directory` is a folder containing `.csv` files with the name of each table in the database.
 
 - This operation will re-create the `final_project` database from the imported data, deleting any prior changes.
+- Note: the minimum Python version required for `project.py` to run is Python 3.13 or higher.
 
 4. Run other commands in the format `python project.py [command]`.
-
-- Note: `python3` currently does not properly import `mysql-connector-python`. Use `python` instead.
