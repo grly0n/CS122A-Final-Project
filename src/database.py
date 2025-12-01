@@ -2,14 +2,13 @@ import mysql.connector
 
 MYSQL_PASSWORD = ""
 MYSQL_SOCKET = "/tmp/mysql.sock"
+DB_NAME = "final_project"
 
 DB_CONFIG = {
-    "user": "root",
-    "password": MYSQL_PASSWORD,
-    "unix_socket": MYSQL_SOCKET,
+    "user": "test",
+    "password": "password",
+    "unix_socket": MYSQL_SOCKET
 }
-
-DB_NAME = "final_project"
 
 
 def get_server_connection():
