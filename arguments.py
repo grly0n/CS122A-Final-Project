@@ -13,33 +13,33 @@ def initialize_arguments() -> argparse.ArgumentParser:
   insert_agent = subparser.add_parser('insertAgentClient', help='Insert new agent client to tables')
   arguments = {'uid': int, 'username': str, 'email': str, 'card_number': int, 'card_holder': str, 'expiration_date': str, 'cvv': int, 'zip': int, 'interests': str}
   for arg, arg_type in arguments.items():
-    insert_agent.add_argument(arg, type=arg_type)
+    insert_agent.add_argument(arg)
 
   # addCustomizedModel [mid:int] [bmid:int]
   add_custom_model = subparser.add_parser('addCustomizedModel', help='Add new customized model to tables')
-  add_custom_model.add_argument('mid', type=int)
-  add_custom_model.add_argument('bmid', type=int)
+  add_custom_model.add_argument('mid')
+  add_custom_model.add_argument('bmid')
 
   # deleteBaseModel [bmid:int]
   delete_base_model = subparser.add_parser('deleteBaseModel', help='Delete base model from tables')
-  delete_base_model.add_argument('bmid', type=int)
+  delete_base_model.add_argument('bmid')
 
   #  listInternetService [bmid:int]
   list_internet_service = subparser.add_parser('listInternetService', help='List internet services used by base model')
-  list_internet_service.add_argument('bmid', type=int)
+  list_internet_service.add_argument('bmid')
 
   # countCustomizedModel [bmid:int]
   count_customized_model = subparser.add_parser('countCustomizedModel', help='Count customized models built from base model')
-  count_customized_model.add_argument('bmid', type=int)
+  count_customized_model.add_argument('bmid', nargs='+')
 
   # topNDurationConfig [uid:int] [N:int]
   top_n_duration_config = subparser.add_parser('topNDurationConfig', help='List longest duration configurations managed by agent client')
-  top_n_duration_config.add_argument('uid', type=int)
-  top_n_duration_config.add_argument('N', type=int)
+  top_n_duration_config.add_argument('uid')
+  top_n_duration_config.add_argument('N')
 
   # listBaseModelKeyWord [keyword:str]
-  keyword_search = subparser.add_parser('listBaseModelKeyword', help='List models using LLM services containing keyword')
-  keyword_search.add_argument('keyword', type=str)
+  keyword_search = subparser.add_parser('listBaseModelKeyWord', help='List models using LLM services containing keyword')
+  keyword_search.add_argument('keyword')
 
   # nl2sql (later...)
   nl2sql = subparser.add_parser(

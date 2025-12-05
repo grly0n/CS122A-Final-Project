@@ -2,12 +2,12 @@ import mysql.connector
 
 MYSQL_PASSWORD = ""
 MYSQL_SOCKET = "/tmp/mysql.sock"
-DB_NAME = "final_project"
+DB_NAME = "cs122a"
 
 DB_CONFIG = {
     "user": "test",
     "password": "password",
-    "unix_socket": MYSQL_SOCKET
+    # "unix_socket": MYSQL_SOCKET
 }
 
 

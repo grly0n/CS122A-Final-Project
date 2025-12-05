@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS final_project;
-CREATE DATABASE final_project;
-USE final_project;
+DROP DATABASE IF EXISTS cs122a;
+CREATE DATABASE cs122a;
+USE cs122a;
 
 -- User Table
 CREATE TABLE User (
@@ -25,7 +25,7 @@ CREATE TABLE AgentClient (
     interests TEXT NOT NULL,
     cardholder TEXT NOT NULL,
     expire DATE NOT NULL,
-    cardno INT NOT NULL,
+    cardno BIGINT NOT NULL,
     cvv INT NOT NULL,
     zip INT NOT NULL,
     PRIMARY KEY (uid),

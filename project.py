@@ -1,6 +1,6 @@
-from src.arguments import initialize_arguments
-from src.importer import Importer
-from src import operations
+from arguments import initialize_arguments
+from importer import Importer
+import operations
 
 
 def handle_function(args) -> None:
@@ -38,7 +38,7 @@ def handle_function(args) -> None:
   elif args.function_name == 'topNDurationConfig':
     operations.top_n_duration_config(args.uid, args.N)
 
-  elif args.function_name == 'listBaseModelKeyword':
+  elif args.function_name == 'listBaseModelKeyWord':
     operations.list_base_model_keyword(args.keyword)
 
   elif args.function_name == 'printNL2SQLresult':
@@ -46,7 +46,10 @@ def handle_function(args) -> None:
 
 def main():
   parser = initialize_arguments()
-  args = parser.parse_args()  
+  args = parser.parse_args()
+  for arg in vars(args):
+    if vars(args)[arg] == 'NULL':
+      vars(args)[arg] = None
   handle_function(args)
 
 if __name__ == '__main__':

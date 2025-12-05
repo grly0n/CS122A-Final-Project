@@ -1,7 +1,7 @@
 from typing import List
 import csv
 import mysql.connector
-from .database import get_connection
+from database import get_connection
 
 def _print_table(rows):
     for row in rows:
@@ -35,6 +35,7 @@ def insert_agent_client(uid: int, username: str, email: str,
         conn.commit()
         print("Success")
     except mysql.connector.Error as e:
+        print(e)
         conn.rollback()
         print("Fail")
     finally:

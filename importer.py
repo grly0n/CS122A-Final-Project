@@ -1,6 +1,6 @@
 from pathlib import Path
 import csv
-from .database import get_server_connection, get_connection
+from database import get_server_connection, get_connection
 
 TABLE_ORDER = [
     "User",
