@@ -22,7 +22,6 @@ def insert_agent_client(
     zip_code,
     interests: str,
 ) -> None:
-
     # Cast numerics safely
     try:
         uid = int(uid)
@@ -33,23 +32,21 @@ def insert_agent_client(
         print("Fail")
         return
 
-    # parse date
-    try:
-        datetime.strptime(expiration_date, "%Y-%m-%d")
-    except Exception:
-        print("Fail")
-        return
-
     conn = get_connection()
     cur = conn.cursor()
     try:
-        # Insert into User
-        cur.execute(
-            "INSERT INTO User (uid, email, username) VALUES (%s, %s, %s)",
-            (uid, email, username),
-        )
+        # Check if this uid already exists in User
+        cur.execute("SELECT 1 FROM User WHERE uid = %s", (uid,))
+        user_exists = cur.fetchone() is not None
 
-        # Insert into AgentClient
+        # Only insert into User if it doesn't exist yet
+        if not user_exists:
+            cur.execute(
+                "INSERT INTO User (uid, email, username) VALUES (%s, %s, %s)",
+                (uid, email, username),
+            )
+
+        # Always insert into AgentClient
         cur.execute(
             """
             INSERT INTO AgentClient

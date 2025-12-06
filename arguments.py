@@ -38,8 +38,11 @@ def initialize_arguments() -> argparse.ArgumentParser:
   top_n_duration_config.add_argument('N')
 
   # listBaseModelKeyWord [keyword:str]
-  keyword_search = subparser.add_parser('listBaseModelKeyWord', help='List models using LLM services containing keyword')
-  keyword_search.add_argument('keyword')
+  keyword_search = subparser.add_parser(
+    'listBaseModelKeyWord',
+    help='List models using LLM services containing keyword'
+  )
+  keyword_search.add_argument('keyword', type=str)
 
   # nl2sql (later...)
   nl2sql = subparser.add_parser(

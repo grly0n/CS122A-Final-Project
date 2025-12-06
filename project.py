@@ -37,7 +37,7 @@ def handle_function(args) -> None:
   elif args.function_name == 'topNDurationConfig':
     operations.top_n_duration_config(args.uid, args.N)
 
-  elif args.function_name == 'listBaseModelKeyword':
+  elif args.function_name == 'listBaseModelKeyWord':
     operations.list_base_model_keyword(args.keyword)
 
   elif args.function_name == 'printNL2SQLresult':
