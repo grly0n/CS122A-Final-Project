@@ -5,7 +5,6 @@ import operations
 
 def handle_function(args) -> None:
   if args.function_name == 'import':
-    print('Importing data from', args.folderName)
     importer = Importer(args.folderName)
     success = importer.import_from_path()
     print('Success' if success else 'Fail')
@@ -38,7 +37,7 @@ def handle_function(args) -> None:
   elif args.function_name == 'topNDurationConfig':
     operations.top_n_duration_config(args.uid, args.N)
 
-  elif args.function_name == 'listBaseModelKeyWord':
+  elif args.function_name == 'listBaseModelKeyword':
     operations.list_base_model_keyword(args.keyword)
 
   elif args.function_name == 'printNL2SQLresult':

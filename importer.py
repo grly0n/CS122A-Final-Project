@@ -50,7 +50,7 @@ class Importer:
             return
         num_cols = len(rows[0])
         placeholders = ",".join(["%s"] * num_cols)
-        sql = f"INSERT INTO {table_name} VALUES ({placeholders})"
+        sql = f"INSERT IGNORE INTO {table_name} VALUES ({placeholders})"
         cursor.executemany(sql, rows)
 
     def import_from_path(self) -> bool:
